@@ -202,7 +202,7 @@ public partial class @KBGPController : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""08ef50f8-157e-4dc6-bde5-409aba6c93a6"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
