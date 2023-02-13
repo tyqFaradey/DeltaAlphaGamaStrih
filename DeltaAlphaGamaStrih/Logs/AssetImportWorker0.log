@@ -3223,3 +3223,15 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 323.570237 seconds.
+  path: Assets/Assets/photo_2023-02-13_15-51-20 1.asset
+  artifactKey: Guid(5b3a6502b93aa4441bb32c491c8857e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/photo_2023-02-13_15-51-20 1.asset using Guid(5b3a6502b93aa4441bb32c491c8857e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39b3f3ddb512a99666434a1705d29ba8') in 0.061105 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.626042 seconds.
+  path: Assets/Assets/Tile
+  artifactKey: Guid(57e6e69bc0ff08c46920bdce8f2fecff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Tile using Guid(57e6e69bc0ff08c46920bdce8f2fecff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '385de9595fe6a1a2b5e05fd6e7d339a1') in 0.008984 seconds 
