@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Flip",
+                    "type": "Button",
+                    "id": "02567b29-a8ef-4e52-b00d-953680da3822",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(pressPoint=0.1)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -156,6 +165,28 @@
                     "action": "MoveV",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "76b9f2de-907b-4a18-84ba-bd48489e3901",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "keyboard+mouse",
+                    "action": "Flip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08ef50f8-157e-4dc6-bde5-409aba6c93a6",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Flip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
