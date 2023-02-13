@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public int speed;
+    public int flipSpeed;
 
     private float moveInputH;
     private float moveInputV;
@@ -42,20 +43,23 @@ public class Movement : MonoBehaviour
         if (moveInputV > 0) // W
         {
             rb.velocity = new Vector2(rb.velocity.x, moveInputV * speed / 10);
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                rb.velocity = new Vector2(rb.velocity.x, flipSpeed);
+            }
         }
 
-        else if (moveInputV < 0) // S
+        if (moveInputV < 0) // S
         {
 
             rb.velocity = new Vector2(rb.velocity.x, moveInputV * speed / 10);
         }
 
-        else if (moveInputH > 0) // D
+        if (moveInputH > 0) // D
         {
             rb.velocity = new Vector2(moveInputH * speed / 10, rb.velocity.y);
         }
 
-        else if (moveInputH < 0) // A
+        if (moveInputH < 0) // A
         {
             rb.velocity = new Vector2(moveInputH * speed / 10, rb.velocity.y);
         }
