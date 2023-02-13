@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public int speed;
     public int flipSpeed;
+    
 
     private int sped;
-
-    //private bool flipStat = false;
 
     private float moveInputH;
     private float moveInputV;
@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
         controls = new KBGPController();
 
         // Jump
-        controls.Main.Flip.performed += context => Flip();
+        //controls.Main.Flip.performed += context => Flip();
     }
 
     private void OnEnable()
@@ -45,7 +45,10 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Movement0();
+
         Flip();
+
+        Debug.Log(flipInput);
     }
 
     private void Movement0()
@@ -79,14 +82,10 @@ public class Movement : MonoBehaviour
     private void Flip()
     {
         flipInput = controls.Main.Flip.ReadValue<float>();
-        if (flipInput > 0)
+
+        if (flipInput == 1)
         {
-            speed = flipSpeed;
-        }
-        
-        else
-        {
-            speed = sped;
+            rb.AddForce(rb.velocity * flipSpeed / 10);
         }
     }
 }

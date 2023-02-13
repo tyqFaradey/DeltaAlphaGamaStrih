@@ -29,7 +29,7 @@
                     "id": "02567b29-a8ef-4e52-b00d-953680da3822",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(pressPoint=0.1)",
+                    "interactions": "Tap(duration=0.09,pressPoint=1.401298E-45)",
                     "initialStateCheck": false
                 }
             ],
@@ -102,6 +102,39 @@
                 },
                 {
                     "name": "1D Axis",
+                    "id": "138858ba-18ef-4fdf-a4d4-3a664ef3e0a1",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveH",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "46a77a89-7ea2-43b7-aa9a-3bd87fe8b3c7",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "MoveH",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "af93df91-c03b-44b6-a8d7-0f77d5212491",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "MoveH",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
                     "id": "e1927025-a000-4ed6-b520-eece71bd3544",
                     "path": "1DAxis",
                     "interactions": "",
@@ -162,6 +195,39 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "keyboard+mouse",
+                    "action": "MoveV",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "207033c7-f71f-4ea5-b825-33431f9ab3a8",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveV",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "594f6d08-d882-4273-a64d-2eea5261b9c8",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "MoveV",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "1bcf489c-3c03-4e89-a7d8-84b3e6155d99",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "MoveV",
                     "isComposite": false,
                     "isPartOfComposite": true
