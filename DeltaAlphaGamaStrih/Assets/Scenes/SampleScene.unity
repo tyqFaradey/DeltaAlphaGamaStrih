@@ -2816,4 +2816,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2111614558}
   speed: 100
-  flipSpeed: 300
+  flipSpeed: 200

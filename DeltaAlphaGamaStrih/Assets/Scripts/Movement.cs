@@ -88,8 +88,5 @@ public class Movement : MonoBehaviour
         {
             speed = sped;
         }
-
-        Debug.Log(111);
     }
-    //
 }
