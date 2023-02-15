@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour
         //Vector2 moveInput = new Vector2(moveInputH, moveInputV);
         //moveVelocity = moveInput.normalized * speed;
 
-        //rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
+        //b.MovePosition(rb.position + moveVelocity * Time.deltaTime);
 
         Debug.Log(tiltAroundZ + "H");
         //Debug.Log(tiltAroundX + "V");
