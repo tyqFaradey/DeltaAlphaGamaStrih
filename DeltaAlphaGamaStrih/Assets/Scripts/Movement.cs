@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 using static Unity.VisualScripting.Member;
+using UnityEditor;
 //using System.Collections;
 
 public class Movement : MonoBehaviour
@@ -14,22 +15,13 @@ public class Movement : MonoBehaviour
     public int speed;
     public int flipSpeed;
 
-    float smooth = 5.0f;
-    float tiltAngle = 60.0f;
-
-    float tiltAroundZ;
-    float tiltAroundX;
-
     float animValue;
-
-    public Joystick joystick;
-    private Vector2 moveVelocity;
-
-
 
     float moveInputH;
     float moveInputV;
     float flipInput;
+
+    float angle;
 
     KBGPController controls;
 
@@ -45,7 +37,7 @@ public class Movement : MonoBehaviour
     {
         controls.Enable();
     }
-
+    
     private void OnDisable()
     {
         controls.Disable();
@@ -61,24 +53,13 @@ public class Movement : MonoBehaviour
         moveInputH = controls.Main.MoveH.ReadValue<float>();
         moveInputV = controls.Main.MoveV.ReadValue<float>();
 
-        tiltAroundZ = moveInputH;
-        tiltAroundX = -moveInputV;
-
         Movement0();
 
         Flip();
 
-        Quaternion target = Quaternion.Euler(tiltAroundX, tiltAroundZ, 0);
+        AnimationRotation();
 
-        rot.transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
-
-        //Vector2 moveInput = new Vector2(moveInputH, moveInputV);
-        //moveVelocity = moveInput.normalized * speed;
-
-        //b.MovePosition(rb.position + moveVelocity * Time.deltaTime);
-
-        Debug.Log(tiltAroundZ + "H");
-        //Debug.Log(tiltAroundX + "V");
+        Debug.Log(animValue);
     }
 
     private void Movement0()
@@ -112,25 +93,67 @@ public class Movement : MonoBehaviour
             rb.AddForce(rb.velocity * flipSpeed / 10);
         }
     }
-
-
-    //tiltAroundZ H
-    //tiltAroundX V
-
     private void AnimationRotation()
-    { 
-        if (tiltAroundZ == 0 & tiltAroundX == 0)
+    {
+        angle = Mathf.Asin(moveInputV) / (Mathf.PI / 180);
+
+        //Debug.Log(angle);
+
+        if (moveInputH == 0 & moveInputV == 0)
         {
             animValue = 0;
+            //Debug.Log("0");
         }
 
-        if (tiltAroundZ == 0 & tiltAroundX == 60)
+        if (moveInputH > 0)
         {
-            animValue = 0;
+            if (angle > -22.5 & angle < 22.5) { animValue = 1; }
+            if (angle > 22.5 & angle < 67.5) { animValue = 2; }
+            if (angle > 67.5 & angle < 90) { animValue = 3; }
+            if (angle > -67.5 & angle < -22.5) { animValue = 8; }
+            if (angle >= -90 & angle < -67.5) { animValue = 7; }
         }
+
+        if (moveInputH < 0)
+        {
+            if (angle > -22.5 & angle < 22.5) { animValue = 5; }
+            if (angle > 22.5 & angle < 67.5) { animValue = 4; }
+            if (angle > 67.5 & angle < 90) { animValue = 3; }
+            if (angle > -67.5 & angle < -22.5) { animValue = 6; }
+            if (angle > -90 & angle < -67.5) { animValue = 7; }
+        }
+
+        if (angle == 90) { animValue = 3; }
+        if (angle == -90) { animValue = 7; }
     }
 
-    
+    /*
+
+        if (moveInputH == 0 & moveInputV > 0)
+        {
+            animValue = 1;
+            Debug.Log("Up");
+        }
+
+        if (moveInputH == 0 & moveInputV < 0)
+        {
+            animValue = -1;
+            Debug.Log("Down");
+        }
+
+
+        if (moveInputH > 0 & moveInputV == 0)
+        {
+            animValue = 2;
+            Debug.Log("Right");
+        }
+
+        if (moveInputH < 0 & moveInputV == 0)
+        {
+            animValue = -2;
+            Debug.Log("Left");
+        }
+        */
 
 
 }
