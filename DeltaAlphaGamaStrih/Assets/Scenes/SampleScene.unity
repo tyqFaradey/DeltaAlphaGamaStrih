@@ -357,7 +357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2111614558}
   speed: 100
-  flipSpeed: 200
+  flipSpeed: 300
 --- !u!114 &2111614560
 MonoBehaviour:
   m_ObjectHideFlags: 0
