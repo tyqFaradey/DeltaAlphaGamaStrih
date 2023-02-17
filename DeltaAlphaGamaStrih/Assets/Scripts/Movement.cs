@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
+using static Unity.VisualScripting.Member;
+using UnityEditor;
+//using System.Collections;
 
 public class Movement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Transform rot;
     public int speed;
     public int flipSpeed;
-    
 
-    private int sped;
+    float animValue;
 
-    private float moveInputH;
-    private float moveInputV;
-    private float flipInput;
+    float moveInputH;
+    float moveInputV;
+    float flipInput;
 
-    private KBGPController controls;
+    float angle;
+
+    KBGPController controls;
 
     private void Awake()
     {
@@ -31,32 +37,33 @@ public class Movement : MonoBehaviour
     {
         controls.Enable();
     }
-
+    
     private void OnDisable()
     {
         controls.Disable();
     }
 
-    private void Start()
+    void Start()
     {
-        sped = speed;
+        
     }
 
     void Update()
     {
+        moveInputH = controls.Main.MoveH.ReadValue<float>();
+        moveInputV = controls.Main.MoveV.ReadValue<float>();
+
         Movement0();
 
         Flip();
 
-        Debug.Log(flipInput);
+        AnimationRotation();
+
+        Debug.Log(animValue);
     }
 
     private void Movement0()
     {
-        moveInputH = controls.Main.MoveH.ReadValue<float>();
-        moveInputV = controls.Main.MoveV.ReadValue<float>();
-
-
         if (moveInputV > 0) // W
         {
             rb.velocity = new Vector2(rb.velocity.x, moveInputV * speed / 10);   
@@ -76,9 +83,7 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(moveInputH * speed / 10, rb.velocity.y);  
         }
-
     }
-
     private void Flip()
     {
         flipInput = controls.Main.Flip.ReadValue<float>();
@@ -88,4 +93,67 @@ public class Movement : MonoBehaviour
             rb.AddForce(rb.velocity * flipSpeed / 10);
         }
     }
+    private void AnimationRotation()
+    {
+        angle = Mathf.Asin(moveInputV) / (Mathf.PI / 180);
+
+        //Debug.Log(angle);
+
+        if (moveInputH == 0 & moveInputV == 0)
+        {
+            animValue = 0;
+            //Debug.Log("0");
+        }
+
+        if (moveInputH > 0)
+        {
+            if (angle > -22.5 & angle < 22.5) { animValue = 1; }
+            if (angle > 22.5 & angle < 67.5) { animValue = 2; }
+            if (angle > 67.5 & angle < 90) { animValue = 3; }
+            if (angle > -67.5 & angle < -22.5) { animValue = 8; }
+            if (angle >= -90 & angle < -67.5) { animValue = 7; }
+        }
+
+        if (moveInputH < 0)
+        {
+            if (angle > -22.5 & angle < 22.5) { animValue = 5; }
+            if (angle > 22.5 & angle < 67.5) { animValue = 4; }
+            if (angle > 67.5 & angle < 90) { animValue = 3; }
+            if (angle > -67.5 & angle < -22.5) { animValue = 6; }
+            if (angle > -90 & angle < -67.5) { animValue = 7; }
+        }
+
+        if (angle == 90) { animValue = 3; }
+        if (angle == -90) { animValue = 7; }
+    }
+
+    /*
+
+        if (moveInputH == 0 & moveInputV > 0)
+        {
+            animValue = 1;
+            Debug.Log("Up");
+        }
+
+        if (moveInputH == 0 & moveInputV < 0)
+        {
+            animValue = -1;
+            Debug.Log("Down");
+        }
+
+
+        if (moveInputH > 0 & moveInputV == 0)
+        {
+            animValue = 2;
+            Debug.Log("Right");
+        }
+
+        if (moveInputH < 0 & moveInputV == 0)
+        {
+            animValue = -2;
+            Debug.Log("Left");
+        }
+        */
+
+
 }
