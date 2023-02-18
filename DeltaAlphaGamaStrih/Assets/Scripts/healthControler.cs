@@ -37,6 +37,7 @@ public class healthControler : MonoBehaviour
 
         if (hp <= 0)
         {
+            Destroy(gameObject);
             StartCoroutine(Die());
             anim.SetTrigger("death");
         }

@@ -4,51 +4,47 @@ using UnityEngine;
 
 public class playerAttack : MonoBehaviour
 {
+    private float timeBtwAttack;
+    public float startTimeBtwAttack;
 
-    public float damage = 100;
-    public float attackDelay = 1;
-    public float attackRadius = 1.5f;
-    public bool isInvulnerable;
-    public float invTime = 1.5f;
-    public healthControler takeDamage;
-
-    private bool canAttack;
-
-    void Start()
-    {
-        canAttack = true;
-        isInvulnerable = false;
-    }
-
-    IEnumerator Invulnerability()
-    {
-        isInvulnerable = true;
-        yield return new WaitForSeconds(invTime);
-        isInvulnerable = false;
-    }
+    public Transform attackPos;
+    public LayerMask enemy;
+    public float attackRadius;
+    public float damage;
+    // public Animator anim;
 
     void Update()
     {
-        Attack();
-    }
 
-    void Attack()
-    {
-        if (!canAttack) { return; }
-        
-        if (Input.GetMouseButton(0))
+        if (timeBtwAttack <= 0)
         {
-            takeDamage = GetComponent<healthControler>();
-            takeDamage.TakeDamage();
-            StartCoroutine(AttackDelay());
+
+            if (Input.GetMouseButton(0))
+            {
+                // anim.SetTrigger("attack");
+                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRadius, enemy);
+                
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    enemies[i].GetComponent<healthControler>().TakeDamage(damage);
+                }
+
+            }
+
+            timeBtwAttack = startTimeBtwAttack;
+
         }
+
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+
     }
 
-    IEnumerator AttackDelay()
+    private void OnDrawGizmosSelected()
     {
-        canAttack = false;
-        yield return new WaitForSeconds(attackDelay);
-        canAttack = true;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRadius);
     }
-
 }
