@@ -1,11 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.InputSystem;
-using static UnityEngine.GraphicsBuffer;
-using static Unity.VisualScripting.Member;
-using UnityEditor;
+
 //using System.Collections;
 
 public class Movement : MonoBehaviour
@@ -22,6 +18,7 @@ public class Movement : MonoBehaviour
     float flipInput;
 
     float angle;
+    float angle0;
 
     KBGPController controls;
 
@@ -59,7 +56,10 @@ public class Movement : MonoBehaviour
 
         AnimationRotation();
 
-        Debug.Log(animValue);
+
+        //Debug.Log(animValue);
+        //Debug.Log(moveInputH);
+        //Debug.Log(moveInputV);
     }
 
     private void Movement0()
@@ -96,64 +96,28 @@ public class Movement : MonoBehaviour
     private void AnimationRotation()
     {
         angle = Mathf.Asin(moveInputV) / (Mathf.PI / 180);
+        angle0 = Mathf.Acos(moveInputH) / (Mathf.PI / 180);
 
-        //Debug.Log(angle);
+        Debug.Log(angle + "V");
+        Debug.Log(angle0 + "H");
 
-        if (moveInputH == 0 & moveInputV == 0)
-        {
-            animValue = 0;
-            //Debug.Log("0");
-        }
 
         if (moveInputH > 0)
         {
             if (angle > -22.5 & angle < 22.5) { animValue = 1; }
             if (angle > 22.5 & angle < 67.5) { animValue = 2; }
-            if (angle > 67.5 & angle < 90) { animValue = 3; }
+            if (angle > 67.5 & angle < 90 | angle == 90) { animValue = 3; }
             if (angle > -67.5 & angle < -22.5) { animValue = 8; }
-            if (angle >= -90 & angle < -67.5) { animValue = 7; }
+            if (angle >= -90 & angle < -67.5 | angle == -90) { animValue = 7; }
         }
 
         if (moveInputH < 0)
         {
             if (angle > -22.5 & angle < 22.5) { animValue = 5; }
             if (angle > 22.5 & angle < 67.5) { animValue = 4; }
-            if (angle > 67.5 & angle < 90) { animValue = 3; }
+            if (angle > 67.5 & angle < 90 | angle == 90) { animValue = 3; }
             if (angle > -67.5 & angle < -22.5) { animValue = 6; }
-            if (angle > -90 & angle < -67.5) { animValue = 7; }
+            if (angle > -90 & angle < -67.5 | angle == -90) { animValue = 7; }
         }
-
-        if (angle == 90) { animValue = 3; }
-        if (angle == -90) { animValue = 7; }
     }
-
-    /*
-
-        if (moveInputH == 0 & moveInputV > 0)
-        {
-            animValue = 1;
-            Debug.Log("Up");
-        }
-
-        if (moveInputH == 0 & moveInputV < 0)
-        {
-            animValue = -1;
-            Debug.Log("Down");
-        }
-
-
-        if (moveInputH > 0 & moveInputV == 0)
-        {
-            animValue = 2;
-            Debug.Log("Right");
-        }
-
-        if (moveInputH < 0 & moveInputV == 0)
-        {
-            animValue = -2;
-            Debug.Log("Left");
-        }
-        */
-
-
 }
