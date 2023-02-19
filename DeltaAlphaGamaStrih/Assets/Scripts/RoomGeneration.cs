@@ -9,12 +9,17 @@ public class RoomGeneration : MonoBehaviour
     public GameObject StartR;
     public int maxRoomsCount = 20;
     public int minRoomsCount = 10;
-    //int plusX = 0;
-    int plusY = 7;
+    public Vector2Int NewPos;
+    public Vector2 Pos;
+    int rx; int ry; int rxold; int ryold;
+    int plusX = 0;
+    int plusY = 0;
     List<int> roomslist = new List<int>();
+    List<Vector2Int> roomsPositions = new List<Vector2Int>();
+
     void Start()
     {
-        A();
+        //A();
         RoomsCreating();
     }
 
@@ -24,7 +29,7 @@ public class RoomGeneration : MonoBehaviour
         int stRoomsCount = Random.Range(roomsCount / 2, roomsCount / (10 / 7));
         int bgRoomsCount = roomsCount - stRoomsCount;
         for (int i = 0; i < stRoomsCount; i++) { roomslist.Add(0); }
-        for (int i = 0; i < bgRoomsCount; i++) { roomslist.Add(1); }
+        //for (int i = 0; i < bgRoomsCount; i++) { roomslist.Add(1); }
         for (int i = 0; i < roomsCount; i++)
         {
             int r = Random.Range(0, roomslist.Count);
@@ -37,22 +42,21 @@ public class RoomGeneration : MonoBehaviour
     void RoomsCreating()
     {
         Instantiate(StartR, transform.position, transform.rotation);
-        for (int i = 0; i < roomslist.Count; i++)
+        roomsPositions.Add(Vector2Int.zero);
+        
+        for (int i = 0; i < 10; i++)
         {
-            if (roomslist[i] == 0)
+            print(plusX);
+            while (true)
             {
-                plusY += 10;
-                Vector2 pos = new Vector2(0, plusY);
-                Instantiate(StR, pos, transform.rotation);
-                //plusX -= 8;
-                plusY += 9;
-            }
-            if (roomslist[i] == 1)
-            {
-                plusY -= 4;
-                Vector2 pos = new Vector2(-10, plusY);
-                Instantiate(BgR, pos, transform.rotation);
-                plusY += 36;
+                int r = Random.Range(0, 2);
+                rxold = rx; ryold = ry;
+                if (r == 0) { rx = Random.Range(-1, 2) + plusX; }
+                else { ry = Random.Range(-1, 2) + plusY; }
+                NewPos = new Vector2Int(rx, ry);
+                Pos = new Vector2(rx * 32, ry * 18);
+                if (!roomsPositions.Contains(NewPos)) { plusX = NewPos.x; plusY = NewPos.y; roomsPositions.Add(NewPos); Instantiate(StR, Pos, transform.rotation); break; }
+                else { rx = rxold; ry = ryold; print(123); }
             }
         }
     }

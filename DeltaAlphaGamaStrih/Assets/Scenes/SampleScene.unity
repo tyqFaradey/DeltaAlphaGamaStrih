@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 13.389192
+  orthographic size: 7.5725493
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -764,11 +764,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f065915078e627248bb18e3b295d6bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StR: {fileID: 3169684843848031052, guid: 95d990f95b5e3284ea623597492b2b2b, type: 3}
+  StR: {fileID: 8622120639959652488, guid: 97a199ed93478c645844fa9f7cd843ce, type: 3}
   BgR: {fileID: 4183772542496897136, guid: 5daf48a9a719669428c69ce2bde30f1d, type: 3}
   StartR: {fileID: 2685694536275548873, guid: f0a00e3dcba4ef6498650aff3a717a32, type: 3}
   maxRoomsCount: 20
   minRoomsCount: 10
+  NewPos: {x: 0, y: 0}
+  Pos: {x: 0, y: 0}
 --- !u!114 &2111614561
 MonoBehaviour:
   m_ObjectHideFlags: 0
