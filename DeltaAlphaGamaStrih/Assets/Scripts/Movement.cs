@@ -59,7 +59,6 @@ public class Movement : MonoBehaviour
 
         AnimationRotation();
 
-        Debug.Log(animValue);
     }
 
     private void Movement0()
