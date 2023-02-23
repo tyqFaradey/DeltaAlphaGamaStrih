@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunController : MonoBehaviour
+public class shootControler : MonoBehaviour
 {
     public float shotSpeed = 0.5f;
     public GameObject bulletPrefab;
@@ -11,6 +11,7 @@ public class GunController : MonoBehaviour
     public Transform gunPoint;
 
     bool canShoot;
+
     void Start()
     {
         canShoot = true;

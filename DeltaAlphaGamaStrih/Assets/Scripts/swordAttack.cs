@@ -9,7 +9,7 @@ public class swordAttack : MonoBehaviour
     public float startTimeBtwAttack;
 
     public Transform attackPos;
-    public LayerMask enemy;
+    public LayerMask Enemy;
     public float attackRudius;
     public float damage;
 
@@ -24,12 +24,12 @@ public class swordAttack : MonoBehaviour
             if (Input.GetMouseButton(0))
 
             {
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRudius, enemy);
+                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRudius, Enemy);
 
                 for (int i=0; i<enemies.Length; i++)
                 
                 {
-                    enemies[i].GetComponent<healthControler>().TakeDamage(damage);
+                    enemies[i].GetComponent<EnemyHealth>().TakeDamage(damage);
                 }
 
             }

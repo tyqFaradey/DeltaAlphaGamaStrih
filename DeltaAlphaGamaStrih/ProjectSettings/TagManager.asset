@@ -6,6 +6,10 @@ TagManager:
   tags:
   - player
   - enemy
+  - Wall
+  - Box
+  - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -13,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - player
-  - enemy
+  - Player
+  - Enemy
   - 
   - 
   - 
