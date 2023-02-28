@@ -998,13 +998,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f065915078e627248bb18e3b295d6bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StR: {fileID: 3169684843848031052, guid: 95d990f95b5e3284ea623597492b2b2b, type: 3}
-  BgR: {fileID: 4183772542496897136, guid: 5daf48a9a719669428c69ce2bde30f1d, type: 3}
-  StartR: {fileID: 2685694536275548873, guid: f0a00e3dcba4ef6498650aff3a717a32, type: 3}
+  RoomU: {fileID: 5318439314200789626, guid: adb195935d3488e4bbf092cd541921c1, type: 3}
+  RoomD: {fileID: 4692354856707666036, guid: 87d3ae7843c2467499767ecdf85085d5, type: 3}
+  RoomR: {fileID: 8179597464451051719, guid: 44b90eb304b47974db78f93dabac6316, type: 3}
+  RoomL: {fileID: 1757671980733114724, guid: e45dc658e1d03c8489cec9bed4a3b29c, type: 3}
+  RoomUD: {fileID: 3169684843848031052, guid: 95d990f95b5e3284ea623597492b2b2b, type: 3}
+  RoomLR: {fileID: 7937444706424411748, guid: 49676ca2b05affa418650210c06977eb, type: 3}
+  RoomUR: {fileID: 7903465645399895278, guid: 0698510cf7877ed4297dc5f91beeea7b, type: 3}
+  RoomDR: {fileID: 7759080275186553681, guid: a4b3c413ff748724994b1c1ebf05afd9, type: 3}
+  RoomDL: {fileID: 2124490916363435125, guid: 574635441a38f304fa349949f0dd807b, type: 3}
+  RoomUL: {fileID: 8909218182843295713, guid: c292997c0f0e2fa4ca33e98cb736f73d, type: 3}
+  StartU: {fileID: 2685694536275548873, guid: 733aacd4e32c3c248996b7766efec63f, type: 3}
+  StartD: {fileID: 5698998433060370892, guid: 50f79745d69f4184cb846c2e8da224de, type: 3}
+  StartR: {fileID: 2795538119576895392, guid: b84ffb02bdcc7cd47a00a979e338500b, type: 3}
+  StartL: {fileID: 3976682551172500765, guid: 9334056decfab6440bd3e2ff1e8f7503, type: 3}
+  FinishU: {fileID: 2091911410359435656, guid: d3dc129b57ace41418b810d56e14e52c, type: 3}
+  FinishR: {fileID: 2925351855472733223, guid: f476c9f2341b2144dbbef3276bfea880, type: 3}
+  FinishD: {fileID: 1980658227970701771, guid: b10b808283e917c4a99e3934496f06b8, type: 3}
+  FinishL: {fileID: 5793327411903057643, guid: 5b872372dc639604d95895bc28fe791a, type: 3}
   maxRoomsCount: 20
   minRoomsCount: 10
   NewPos: {x: 0, y: 0}
+  OldPos: {x: 0, y: 0}
   Pos: {x: 0, y: 0}
+  GlPos: {x: 0, y: 0}
+  DirX: {x: 0, y: 0}
+  DirY: {x: 0, y: 0}
+  StartNewLevel: 1
 --- !u!114 &2111614563
 MonoBehaviour:
   m_ObjectHideFlags: 0

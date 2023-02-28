@@ -39,14 +39,14 @@ public class healthControler : MonoBehaviour
         {
             Destroy(gameObject);
             StartCoroutine(Die());
-            anim.SetTrigger("death");
+            //anim.SetTrigger("death");
         }
 
         else
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             StartCoroutine(Invulnerability());
-            anim.SetTrigger("hit");
+            //anim.SetTrigger("hit");
         }
     }
 
