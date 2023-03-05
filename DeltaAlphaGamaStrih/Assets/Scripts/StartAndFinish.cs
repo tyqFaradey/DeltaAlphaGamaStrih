@@ -20,8 +20,8 @@ public class StartAndFinish : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Finish"))
         {
-            RoomsDestroy = true;
-            rg.StartNewLevel = true;
+           //RoomsDestroy = true;
+           // rg.StartNewLevel = true;
         }
     }
 }

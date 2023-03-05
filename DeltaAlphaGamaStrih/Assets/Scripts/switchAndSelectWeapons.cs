@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class switchAndSelectWeapons : MonoBehaviour
 {
+    public weaponSwitch switcher;
     public List<GameObject> unlocedWeapons;
     public GameObject[] allWeapons;
     //public GameObject weaponImage;
@@ -13,20 +14,7 @@ public class switchAndSelectWeapons : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            if(sword.activeInHierarchy == true & ((IList<GameObject>)unlocedWeapons).Contains(crosbow))
-            {
-                sword.SetActive(false);
-                crosbow.SetActive(true);
-            }
-            
-            else if(crosbow.activeInHierarchy == true)
-            {
-                sword.SetActive(true);
-                crosbow.SetActive(false);
-            }
-        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -36,8 +24,9 @@ public class switchAndSelectWeapons : MonoBehaviour
             if (other.name == allWeapons[i].name)
             {
                 unlocedWeapons.Add(allWeapons[i]);
+                switcher.AddWeapon(other.gameObject);
             }
         }
-        Destroy(other.gameObject);
+        //Destroy(other.gameObject);
     }
 }

@@ -20,9 +20,30 @@ public class weaponSwitch : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            weapons[curWeapon].SetActive(false);
-            curWeapon = (curWeapon + 1) % weapons.Count;
-            weapons[curWeapon].SetActive(true);
+            SwitchWeapon();
         }
+    }
+
+    void SwitchWeapon()
+    {
+        weapons[curWeapon].SetActive(false);
+        curWeapon = (curWeapon + 1) % weapons.Count;
+        weapons[curWeapon].SetActive(true);
+    }
+
+    public void AddWeapon(GameObject weapon)
+    {
+        foreach (var component in weapon.GetComponents<MonoBehaviour>())
+        {
+            component.enabled = true;
+        }
+
+        weapon.transform.parent = transform;
+        weapon.transform.localPosition = new Vector3(0.6f, 0.483f, 0);
+
+        weapons.Add(weapon);
+        weapons[curWeapon].SetActive(false);
+        curWeapon = weapons.Count - 1;
+        weapons[curWeapon].SetActive(true);
     }
 }
