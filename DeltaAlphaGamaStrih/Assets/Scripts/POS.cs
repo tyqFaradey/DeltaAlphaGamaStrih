@@ -20,6 +20,6 @@ public class POS : MonoBehaviour
             change = false;
             transform.position = new Vector2(x, y);
         }
-        //if (o) { transform.position = new Vector2(0, 0); o = false; }
+        if (o) { transform.position = new Vector2(0, 0); o = false; }
     }
 }

@@ -12,7 +12,6 @@ public class Destroy : MonoBehaviour
 
     void Update()
     {
-        //if (sf.RoomsDestroy) { Destroy(this); }
-        if (true) { Destroy(this); }
+        if (sf.RoomsDestroy) { Destroy(gameObject); print(1); }
     }
 }

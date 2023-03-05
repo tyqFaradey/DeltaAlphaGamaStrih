@@ -53,14 +53,14 @@ public class RoomGeneration : MonoBehaviour
     {
         if (StartNewLevel)
         {
+            transform.position = new Vector2(0, 0);
             O();
-            //RoomsCreating();
+            StartNewLevel = false;
             NewRoomsCreating();
             ps = FindObjectOfType<PlayerSpawn>();
             sf = FindObjectOfType<StartAndFinish>();
-            //sf.RoomsDestroy = false;
+            sf.RoomsDestroy = false;
             ps.kira = true;
-            StartNewLevel = false;
         }
     }
 

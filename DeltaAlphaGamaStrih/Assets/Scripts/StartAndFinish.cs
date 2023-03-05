@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartAndFinish : MonoBehaviour
 {
-    public bool RoomsDestroy = true;
+    public bool RoomsDestroy = false;
     RoomGeneration rg;
     void Start()
     {
@@ -13,14 +13,17 @@ public class StartAndFinish : MonoBehaviour
 
     void Update()
     {
-        //OnCollisionEnter2D();
+        
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Finish"))
         {
-            RoomsDestroy = true;
+            foreach (var room in GameObject.FindGameObjectsWithTag("Room"))
+            {
+                Destroy(room);
+            }
             rg.StartNewLevel = true;
         }
     }
