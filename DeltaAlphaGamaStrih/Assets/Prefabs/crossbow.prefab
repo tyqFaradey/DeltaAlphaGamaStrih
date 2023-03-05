@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6816644976446966105}
+  - component: {fileID: 594923593529864085}
   - component: {fileID: 4288432733189753071}
+  - component: {fileID: -7839428842543473581}
   m_Layer: 0
   m_Name: crossbow
   m_TagString: Untagged
@@ -32,6 +34,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &594923593529864085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462363709677288277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da35ed30a075538428f4db92793131a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpeed: 15
+  bulletPrefab: {fileID: 6850958259608791954, guid: ece9febe5d9c46e42b31c86fd9f326e0, type: 3}
+  angleSpreading: 1.15
+  gunPoint: {fileID: 7362554157361659376, guid: dc89ce402576ee74e94609faa931fbe9, type: 3}
 --- !u!212 &4288432733189753071
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72,9 +90,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0, g: 0.10449934, b: 1, a: 1}
+  m_Color: {r: 0.85877466, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,3 +102,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &-7839428842543473581
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462363709677288277}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0

@@ -4,10 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - wall
+  - player
+  - enemy
   - Wall
   - Box
+  - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
   - Enemy
-  - 
   - 
   - 
   - 

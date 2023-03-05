@@ -20,7 +20,9 @@ public class Bullet : MonoBehaviour
         if (collision.tag == "Wall" || collision.tag == "Box") { Destroy(gameObject); }
         if (collision.tag == "Enemy")
         {
-            var enemy = collision.GetComponent<healthControler>();
+            //GameObject arrow = GameObject.Find("arrowPrefab");
+            //arrow.transform.rotation = Quaternion.Euler(0, 10, 180);
+            var enemy = collision.GetComponent<EnemyHealth>();
             enemy.TakeDamage(damage);
             Destroy(gameObject);
         }

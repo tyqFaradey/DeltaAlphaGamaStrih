@@ -27,6 +27,7 @@ public class enemyAttack : MonoBehaviour
         if (!canAttack) { return; }
 
         var col = Physics2D.OverlapCircle(transform.position, attackRadius, playerMask);
+        
         if (col != null)
         {
             col.GetComponent<healthControler>().TakeDamage(damage);

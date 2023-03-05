@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class healthControler : MonoBehaviour
 {
-    //public Animator anim;
+    public Animator anim;
     public Rigidbody2D rb;
     public bool isInvulnerable;
     public float invTime = 1.5f;
@@ -37,8 +37,8 @@ public class healthControler : MonoBehaviour
 
         if (hp <= 0)
         {
-            StartCoroutine(Die());
             Destroy(gameObject);
+            StartCoroutine(Die());
             //anim.SetTrigger("death");
         }
 
@@ -47,7 +47,7 @@ public class healthControler : MonoBehaviour
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             StartCoroutine(Invulnerability());
             //anim.SetTrigger("hit");
-        }    
+        }
     }
 
     public IEnumerator Die()
@@ -57,7 +57,9 @@ public class healthControler : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
+        /*
         UIManager ui = FindObjectOfType<UIManager>();
         ui.GameOver();
+        */
     }
 }
