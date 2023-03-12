@@ -25,6 +25,8 @@ public class RoomGeneration : MonoBehaviour
     public GameObject FinishD;
     public GameObject FinishL;
 
+    public GameObject BossRoom;
+
     PlayerSpawn ps;
     StartAndFinish sf;
     POS pos;
@@ -43,6 +45,7 @@ public class RoomGeneration : MonoBehaviour
     int plusY = 0, oldplusY;
     int OldDir = 0;
     int RoomVar = 0;
+    public int bossFight = -1;
 
     List<int> roomslist = new List<int>();
     List<Vector2Int> roomsPositions = new List<Vector2Int>();
@@ -56,7 +59,9 @@ public class RoomGeneration : MonoBehaviour
             transform.position = new Vector2(0, 0);
             O();
             StartNewLevel = false;
-            NewRoomsCreating();
+            if (bossFight == -1) { NewRoomsCreating(); }
+            else { BossRoomCreating(); }
+            bossFight *= -1;
             ps = FindObjectOfType<PlayerSpawn>();
             sf = FindObjectOfType<StartAndFinish>();
             sf.RoomsDestroy = false;
@@ -171,6 +176,11 @@ public class RoomGeneration : MonoBehaviour
         if (Dir == 2) { plusY--; Instantiate(FinishU, Gl(new Vector2(plusX, plusY)), transform.rotation); }
         if (Dir == 3) { plusX--; Instantiate(FinishR, Gl(new Vector2(plusX, plusY)), transform.rotation); }
 
+    }
+
+    void BossRoomCreating()
+    {
+        Instantiate(BossRoom, transform.position, transform.rotation);
     }
 
     Vector2 Gl(Vector2 vctr2)

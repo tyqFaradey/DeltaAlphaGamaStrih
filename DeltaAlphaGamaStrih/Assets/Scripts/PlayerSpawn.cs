@@ -9,5 +9,6 @@ public class PlayerSpawn : MonoBehaviour
     void Start()
     {
         GameObject.FindGameObjectWithTag("Player").transform.position = transform.position;
+        Destroy(gameObject);
     }
 }
