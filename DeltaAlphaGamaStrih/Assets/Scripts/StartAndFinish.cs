@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartAndFinish : MonoBehaviour
 {
-    public bool RoomsDestroy = true;
+    public bool RoomsDestroy = false;
     RoomGeneration rg;
     void Start()
     {
@@ -20,8 +20,15 @@ public class StartAndFinish : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Finish"))
         {
-           //RoomsDestroy = true;
-           // rg.StartNewLevel = true;
+            foreach (var room in GameObject.FindGameObjectsWithTag("Room"))
+            {
+                Destroy(room);
+            }
+            foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+            {
+                Destroy(enemy);
+            }
+            rg.StartNewLevel = true;
         }
     }
 }

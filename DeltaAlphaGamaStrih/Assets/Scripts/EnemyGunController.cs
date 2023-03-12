@@ -27,7 +27,11 @@ public class EnemyGunController : MonoBehaviour
     {
         if (canShoot && Vector2.Distance(transform.position, player.transform.position) <= shotDistance)
         {
-            Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
+            var dir = player.transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            shootingPoint.eulerAngles = new Vector3(0, 0, angle);
+            Instantiate(bulletPrefab, new Vector3(shootingPoint.position.x, shootingPoint.position.y, 0), shootingPoint.rotation);
+            StartCoroutine(ShootingDelay());
         }
     }
 
@@ -36,5 +40,11 @@ public class EnemyGunController : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(shotSpeed);
         canShoot = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(shootingPoint.position, shotDistance);
     }
 }

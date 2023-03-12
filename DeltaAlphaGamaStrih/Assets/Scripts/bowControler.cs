@@ -34,7 +34,7 @@ public class bowControler : MonoBehaviour
 
         float angle = bullet.transform.eulerAngles.z;
         angle += Random.Range(-angleSpreading, angleSpreading);
-        bullet.transform.eulerAngles = new Vector3(0, 0, angle - 90);
+        bullet.transform.eulerAngles = new Vector3(0, 0, angle-90);
 
         StartCoroutine(ShotDelay());
     }
@@ -52,7 +52,7 @@ public class bowControler : MonoBehaviour
         Vector2 dir = mousePos - (Vector2)transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        transform.eulerAngles = new Vector3(0, 0, angle + 90);
+        transform.eulerAngles = new Vector3(0, 0, angle+90);
     }
 
     private void OnEnable()

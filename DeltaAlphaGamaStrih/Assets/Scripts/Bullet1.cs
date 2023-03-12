@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet1 : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float speed;
@@ -18,9 +18,9 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Wall" || collision.tag == "Box") { Destroy(gameObject); }
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Player")
         {
-            var enemy = collision.GetComponent<EnemyHealth>();
+            var enemy = collision.GetComponent<healthControler>();
             enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
