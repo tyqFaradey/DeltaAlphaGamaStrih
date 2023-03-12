@@ -11,7 +11,11 @@ public class Movement : MonoBehaviour
 
     private int sped;
 
-    //private bool flipStat = false;
+    private bool flipStat;
+
+    private Vector2 velocity;
+
+    public float Delay;
 
     private float moveInputH;
     private float moveInputV;
@@ -24,7 +28,7 @@ public class Movement : MonoBehaviour
         controls = new KBGPController();
 
         // Jump
-        controls.Main.Flip.performed += context => Flip();
+        //controls.Main.Flip.performed += context => Flip();
     }
 
     private void OnEnable()
@@ -40,11 +44,13 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         sped = speed;
+        flipStat = true;
     }
 
     void Update()
     {
         Movement0();
+ 
         Flip();
     }
 
@@ -53,10 +59,9 @@ public class Movement : MonoBehaviour
         moveInputH = controls.Main.MoveH.ReadValue<float>();
         moveInputV = controls.Main.MoveV.ReadValue<float>();
 
-
         if (moveInputV > 0) // W
         {
-            rb.velocity = new Vector2(rb.velocity.x, moveInputV * speed / 10);   
+            rb.velocity = new Vector2(rb.velocity.x, moveInputV * speed / 10);
         }
 
         if (moveInputV < 0) // S
@@ -66,27 +71,22 @@ public class Movement : MonoBehaviour
 
         if (moveInputH > 0) // D
         {
-            rb.velocity = new Vector2(moveInputH * speed / 10, rb.velocity.y);   
+            rb.velocity = new Vector2(moveInputH * speed / 10, rb.velocity.y);
         }
 
         if (moveInputH < 0) // A
         {
-            rb.velocity = new Vector2(moveInputH * speed / 10, rb.velocity.y);  
+            rb.velocity = new Vector2(moveInputH * speed / 10, rb.velocity.y);
         }
-
     }
 
     private void Flip()
     {
         flipInput = controls.Main.Flip.ReadValue<float>();
+
         if (flipInput > 0)
         {
-            speed = flipSpeed;
-        }
-        
-        else
-        {
-            speed = sped;
+            rb.MovePosition(rb.position + velocity * flipSpeed / 10);
         }
     }
 }
