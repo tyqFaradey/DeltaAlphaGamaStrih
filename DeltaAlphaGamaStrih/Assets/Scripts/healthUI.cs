@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class healthUI : MonoBehaviour
 {
     public healthControler hp;
-    Image bar;
+    public Image bar;
 
     void Start()
     {
-        bar = GetComponent<Image>();
+        hp = GetComponent<healthControler>();
     }
 
     void Update()

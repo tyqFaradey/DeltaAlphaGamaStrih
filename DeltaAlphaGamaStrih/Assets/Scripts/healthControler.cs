@@ -6,17 +6,28 @@ public class healthControler : MonoBehaviour
 {
     public Animator anim;
     public Rigidbody2D rb;
+    public SpriteRenderer vign;
+
     public bool isInvulnerable;
     public float invTime = 1.5f;
 
     public float hp, maxHp;
     public float jumpForce;
 
+    float r = 1, g = 1, b = 1;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         isInvulnerable = false;
         hp = maxHp;
+    }
+
+    void Update()
+    {
+        vign.color = new Color(r, g, b, 1);
+        if (g < 1) { g += 0.02f; }
+        if (b < 1) { b += 0.02f; }
     }
 
     IEnumerator Invulnerability()
@@ -34,6 +45,8 @@ public class healthControler : MonoBehaviour
         }
 
         hp -= damage;
+
+        g = 0; b = 0;
 
         if (hp <= 0)
         {
