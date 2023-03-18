@@ -87,6 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   rb: {fileID: 3732569575978426352}
+  vign: {fileID: 0}
   isInvulnerable: 0
   invTime: 1.5
   hp: 0
@@ -109,7 +110,7 @@ MonoBehaviour:
   - {fileID: 3732569576151808022}
   allWeapons:
   - {fileID: 3732569576151808022}
-  - {fileID: 0}
+  - {fileID: 7080055048815274376, guid: 15ae6c7839e699b4fad18270051e4f16, type: 3}
   sword: {fileID: 3732569576151808022}
   crosbow: {fileID: 7080055048815274376, guid: 15ae6c7839e699b4fad18270051e4f16, type: 3}
 --- !u!114 &3732569575978426317

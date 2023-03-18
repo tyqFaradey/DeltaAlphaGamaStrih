@@ -1871,6 +1871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: crossBow1
       objectReference: {fileID: 0}
+    - target: {fileID: 7120595356936570424, guid: 15ae6c7839e699b4fad18270051e4f16, type: 3}
+      propertyPath: gunPoint
+      value: 
+      objectReference: {fileID: 7372885684880477970, guid: d810128348f932b45aecea1060b96bbc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15ae6c7839e699b4fad18270051e4f16, type: 3}
 --- !u!4 &3684507220615351882 stripped

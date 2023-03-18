@@ -10,7 +10,7 @@ public class healthUI : MonoBehaviour
 
     void Start()
     {
-        hp = GetComponent<healthControler>();
+        hp = FindObjectOfType<healthControler>();
     }
 
     void Update()

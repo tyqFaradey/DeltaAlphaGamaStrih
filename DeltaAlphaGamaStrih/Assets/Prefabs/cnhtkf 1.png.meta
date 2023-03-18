@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 15b74e7a305e3274e8c5d1f11b42fb78
+guid: 004932fc3f08a554e94c5b63e962b630
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hp_0
+      name: cnhtkf 1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 643
-        height: 40
+        width: 5
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce9986784ab8e2646815195d4c1763ac
-      internalID: 1971610658
+      spriteID: f3e1b7ad74f67e34aa8ac2f944258ef0
+      internalID: 2038747954
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hp_0: 1971610658
+      cnhtkf 1_0: 2038747954
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
