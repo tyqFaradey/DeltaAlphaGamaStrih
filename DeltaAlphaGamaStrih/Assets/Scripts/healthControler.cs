@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class healthControler : MonoBehaviour
 {
+    RoomGeneration rg;
+    public swordAttack sa;
+    public bowControler bc;
     public Animator anim;
     public Rigidbody2D rb;
     public SpriteRenderer vign;
+    public SpriteRenderer die;
 
     public bool isInvulnerable;
     public float invTime = 1.5f;
@@ -14,11 +18,14 @@ public class healthControler : MonoBehaviour
     public float hp, maxHp;
     public float jumpForce;
 
-    float r = 1, g = 1, b = 1;
+    public float r = 1, g = 1, b = 1, a = 0;
 
     void Start()
     {
+        sa = GetComponent<swordAttack>();
+        bc = GetComponent<bowControler>();
         rb = GetComponent<Rigidbody2D>();
+        rg = GetComponent<RoomGeneration>();
         isInvulnerable = false;
         hp = maxHp;
     }
@@ -26,8 +33,10 @@ public class healthControler : MonoBehaviour
     void Update()
     {
         vign.color = new Color(r, g, b, 1);
+        die.color = new Color(1, 1, 1, a);
         if (g < 1) { g += 0.02f; }
         if (b < 1) { b += 0.02f; }
+        if (hp <= 0) { a += 0.01f; die.color = new Color(1, 1, 1, a); }
     }
 
     IEnumerator Invulnerability()
@@ -48,9 +57,8 @@ public class healthControler : MonoBehaviour
 
         g = 0; b = 0;
 
-        if (hp <= 0)
+        if (hp <= 0 & a >= 1)
         {
-            Destroy(gameObject);
             StartCoroutine(Die());
             //anim.SetTrigger("death");
         }
@@ -65,14 +73,10 @@ public class healthControler : MonoBehaviour
 
     public IEnumerator Die()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        Destroy(rb);
+        sa.canAttack = false;
+        bc.canAttack = false;
+
 
         yield return new WaitForSeconds(2);
-
-        /*
-        UIManager ui = FindObjectOfType<UIManager>();
-        ui.GameOver();
-        */
     }
 }

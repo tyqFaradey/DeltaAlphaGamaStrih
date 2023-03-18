@@ -12,33 +12,35 @@ public class swordAttack : MonoBehaviour
     public LayerMask Enemy;
     public float attackRudius;
     public float damage;
+    public bool canAttack = true;
 
     // Update is called once per frame
     void Update()
     {
-
-        if (timeBtwAttack <= 0)
+        if (canAttack)
         {
-            if (Input.GetMouseButton(0))
-
+            if (timeBtwAttack <= 0)
             {
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRudius, Enemy);
-                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+                if (Input.GetMouseButton(0))
 
-                for (int i=0; i<enemies.Length; i++)
                 {
-                    enemies[i].GetComponent<EnemyHealth>().TakeDamage(damage);
+                    Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRudius, Enemy);
+                    transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+
+                    for (int i = 0; i < enemies.Length; i++)
+                    {
+                        enemies[i].GetComponent<EnemyHealth>().TakeDamage(damage);
+                    }
                 }
+
+                timeBtwAttack = startTimeBtwAttack;
             }
 
-            timeBtwAttack = startTimeBtwAttack;
+            else
+            {
+                timeBtwAttack--;
+            }
         }
-
-        else
-        {
-            timeBtwAttack--;
-        }
-
     }
 
     private void OnDrawGizmosSelected()
