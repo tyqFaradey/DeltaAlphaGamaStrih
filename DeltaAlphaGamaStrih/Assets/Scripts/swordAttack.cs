@@ -18,30 +18,25 @@ public class swordAttack : MonoBehaviour
     {
 
         if (timeBtwAttack <= 0)
-
         {
-
             if (Input.GetMouseButton(0))
 
             {
                 Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRudius, Enemy);
+                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
 
                 for (int i=0; i<enemies.Length; i++)
-                
                 {
                     enemies[i].GetComponent<EnemyHealth>().TakeDamage(damage);
                 }
-
             }
 
             timeBtwAttack = startTimeBtwAttack;
-
         }
 
         else
-
         {
-            timeBtwAttack -= startTimeBtwAttack;
+            timeBtwAttack--;
         }
 
     }

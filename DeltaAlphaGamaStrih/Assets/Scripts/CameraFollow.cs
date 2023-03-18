@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
     
     void FixedUpdate()
     {
-        var pos = Vector2.Lerp(transform.position, target.position, speed / 100);
+        var pos = Vector2.Lerp(transform.position, target.position, 0.0001f);
         camera.transform.position = new Vector3(pos.x, pos.y, -10);
     }
 
