@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class RoomGeneration : MonoBehaviour
 {
+    public swordAttack sa;
+    public bowControler bc;
+    public healthControler hp;
+
     public GameObject RoomU;
     public GameObject RoomD;
     public GameObject RoomR;
@@ -64,6 +68,12 @@ public class RoomGeneration : MonoBehaviour
             bossFight *= -1;
             ps = FindObjectOfType<PlayerSpawn>();
             sf = FindObjectOfType<StartAndFinish>();
+            sa = GetComponent<swordAttack>();
+            bc = GetComponent<bowControler>();
+            hp = GetComponent<healthControler>();
+            hp.a = 0;
+            sa.canAttack = true;
+            bc.canAttack = true;
             sf.RoomsDestroy = false;
             ps.kira = true;
         }

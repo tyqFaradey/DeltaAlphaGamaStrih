@@ -10,7 +10,8 @@ public class bowControler : MonoBehaviour
 
     public Transform gunPoint;
 
-    bool canShoot;
+    public bool canShoot;
+    public bool canAttack = true;
 
     void Start()
     {
@@ -19,8 +20,11 @@ public class bowControler : MonoBehaviour
 
     void Update()
     {
-        Rotate();
-        CheckShot();
+        if (canAttack)
+        {
+            Rotate();
+            CheckShot();
+        }
     }
 
     void CheckShot()
