@@ -37,6 +37,7 @@ public class weaponSwitch : MonoBehaviour
         {
             component.enabled = true;
         }
+        weapon.GetComponent<Collider2D>().enabled = false;
 
         weapon.transform.parent = transform;
         weapon.transform.localPosition = new Vector3(0.6f, 0.483f, 0);
