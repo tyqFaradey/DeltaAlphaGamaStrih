@@ -49,9 +49,21 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        flipInput = controls.Main.Flip.ReadValue<float>();
+        moveInputH = controls.Main.MoveH.ReadValue<float>();
+        moveInputV = controls.Main.MoveV.ReadValue<float>();
+
+        velocity = new Vector2(moveInputH, moveInputV);
+
         Movement0();
- 
-        Flip();
+
+        if (flipInput > 0)
+        {
+            rb.AddForce(velocity * flipSpeed / 10, ForceMode2D.Impulse);
+        }
+
+
+
     }
 
     private void Movement0()
@@ -82,11 +94,7 @@ public class Movement : MonoBehaviour
 
     private void Flip()
     {
-        flipInput = controls.Main.Flip.ReadValue<float>();
 
-        if (flipInput > 0)
-        {
-            rb.MovePosition(rb.position + velocity * flipSpeed / 10);
-        }
+        
     }
 }
